@@ -8,27 +8,20 @@ using namespace std;
 
 BOOST_AUTO_TEST_SUITE( TestFloatingPoint )
 
-BOOST_AUTO_TEST_CASE( TestBasic )
+BOOST_AUTO_TEST_CASE( ShouldNotEqualWhen1Over3 )
 {  
-	float number = 1.25;
+	float a1 = (float)( 1.0/3.0 );
+	double a2 = 1.0/3.0;
 
-	unsigned int rep = *(unsigned int *)(&number);
+	BOOST_CHECK( (double)a1 != a2 );
+}
 
-	bool is_positive = ( rep & 0x80000000 ) == 0 ? true : false;
-	unsigned int mantissa = (rep & 0x007FFFFF);
-	unsigned int exponent = (rep & 0x7F800000) >> 23;
+BOOST_AUTO_TEST_CASE( TestPointer )
+{  
+	float a = 1.0f;
+	float* b = &a;
 
-	double sum = 1.0;
-	double sub = 1.0 / 2.0;
-	for( int n=22; n>=0; --n )
-	{
-		int bit = ((mantissa>>n)&0x01);
-		double part = (double) bit * sub;
-		sum += part;
-		sub /= 2.0;
-	}
-
-	sum = sum * pow( 2.0, (double)exponent - 0x7f );
+	BOOST_CHECK_EQUAL( a, *b);
 }
 
 
