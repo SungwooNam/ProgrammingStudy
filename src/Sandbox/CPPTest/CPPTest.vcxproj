@@ -23,6 +23,10 @@
     <ClCompile>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -34,7 +38,12 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestConstness.cpp" />
     <ClCompile Include="TestFloatingPoint.cpp" />
+    <ClCompile Include="TestPointerMemoryAllocation.cpp" />
+    <ClCompile Include="TestPointerResourceHandling.cpp" />
+    <ClCompile Include="TestPointers.cpp" />
+    <ClCompile Include="TestSmartPointer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
