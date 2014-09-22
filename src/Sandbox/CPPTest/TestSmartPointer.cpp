@@ -19,6 +19,12 @@ BOOST_AUTO_TEST_CASE( SharedPointerBasic )
 	strcpy_s( another_name.get(), 100, "Changed!!" );
 }
 
+typedef boost::shared_ptr< char > CharPtr;
+
+void UpdateName( CharPtr n, size_t nsize )
+{
+	strcpy_s( n.get(), nsize, "New name" );
+}
 
 
 BOOST_AUTO_TEST_CASE( SharedPointerNoMemoryLeakWithException ) 
@@ -27,6 +33,8 @@ BOOST_AUTO_TEST_CASE( SharedPointerNoMemoryLeakWithException )
 	{
 		boost::shared_ptr< char > name( new char[100] );
 		strcpy_s( name.get(), 100, "name In SP" );
+
+		UpdateName( name, 100 );
 		
 		throw "bang!";
 	}
@@ -34,6 +42,7 @@ BOOST_AUTO_TEST_CASE( SharedPointerNoMemoryLeakWithException )
 	{
 	}
 }
+
 
 
 
