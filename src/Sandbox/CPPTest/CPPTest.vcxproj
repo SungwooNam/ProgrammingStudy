@@ -39,6 +39,8 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestConstness.cpp" />
+    <ClCompile Include="TestException.cpp" />
+    <ClCompile Include="TestExceptionBoundary.cpp" />
     <ClCompile Include="TestFloatingPoint.cpp" />
     <ClCompile Include="TestPointerMemoryAllocation.cpp" />
     <ClCompile Include="TestPointerResourceHandling.cpp" />
