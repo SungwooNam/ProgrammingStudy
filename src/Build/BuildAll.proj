@@ -6,6 +6,7 @@
 	
 	<PropertyGroup>
 		<SRC_ROOT>..</SRC_ROOT>
+		<PLATFORM>x64</PLATFORM>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,6 +16,7 @@
 	
 	<ItemGroup>
 		<SolutionToBuild Include="$(SRC_ROOT)\Sandbox\Sandbox.sln"/>
+		<SolutionToBuild Include="$(SRC_ROOT)\GPU\GPU.sln"/>
 	</ItemGroup>
 
 	<PropertyGroup>
@@ -38,14 +40,18 @@
 	<Target Name="CoreBuild">	
 		<MSBuild 
 			Projects="@(SolutionToBuild)" 
-			Properties="Configuration=%(AllConfigurations.Identity)" />
+			Properties="Configuration=%(AllConfigurations.Identity);Platform=$(PLATFORM)"  />
 	</Target>
 
 	<Target Name="AfterBuild">	
 		<!-- TODO : Unit Test -->
 		<Exec 
 			Command="CPPTest.exe"
-			WorkingDirectory="$(SRC_ROOT)\SandBox\bin\%(AllConfigurations.Identity)"
+			WorkingDirectory="$(SRC_ROOT)\SandBox\bin\$(PLATFORM)%(AllConfigurations.Identity)"
+		/>
+		<Exec 
+			Command="OpenCLTest.exe"
+			WorkingDirectory="$(SRC_ROOT)\GPU\bin\$(PLATFORM)%(AllConfigurations.Identity)"
 		/>
 	</Target>
 	

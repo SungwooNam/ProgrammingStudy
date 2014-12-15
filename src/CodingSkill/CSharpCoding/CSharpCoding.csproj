@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryHeap.cs" />
+    <Compile Include="BinarySearchTree.cs" />
     <Compile Include="DiagonalPrint.cs" />
     <Compile Include="FindAnagram.cs" />
     <Compile Include="FindConsecuitiveNumbers.cs" />

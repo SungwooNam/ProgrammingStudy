@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CA2CD8D6-A8E6-49F2-B794-CE8F680850D5}</ProjectGuid>
+    <ProjectGuid>{D09E9DB7-6380-4E0A-A9C3-BD164BEEDD72}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>StudyComponent</RootNamespace>
+    <RootNamespace>OpenCLTets</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <SRC_ROOT>..\..</SRC_ROOT>
@@ -29,30 +29,36 @@
   <Import Project="$(SRC_ROOT)\Build\BoostUnitTest.Default.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\AMD APP SDK\2.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__CL_ENABLE_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command/>
+      <Command>copy Kernel_HelloWorld.cl "$(OutDir)Kernel_HelloWorld.cl" /Y
+copy KernelGPU_Inspection.cl "$(OutDir)KernelGPU_Inspection.cl" /Y
+copy KernelCPU_Inspection.cl "$(OutDir)KernelCPU_Inspection.cl" /Y</Command>
     </PostBuildEvent>
+    <Link>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='Win32'">C:\Program Files (x86)\AMD APP SDK\2.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='x64'">C:\Program Files (x86)\AMD APP SDK\2.9\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="OpenCLWorkBench.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="OpenCLWorkBench.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TestConstness.cpp" />
-    <ClCompile Include="TestException.cpp" />
-    <ClCompile Include="TestExceptionBoundary.cpp" />
-    <ClCompile Include="TestFloatingPoint.cpp" />
-    <ClCompile Include="TestPointerMemoryAllocation.cpp" />
-    <ClCompile Include="TestPointerResourceHandling.cpp" />
-    <ClCompile Include="TestPointers.cpp" />
-    <ClCompile Include="TestSmartPointer.cpp" />
+    <ClCompile Include="TestHelloWorld.cpp" />
+    <ClCompile Include="TestPitchComparison.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KernelCPU_Inspection.cl" />
+    <None Include="KernelGPU_Inspection.cl" />
+    <None Include="Kernel_HelloWorld.cl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
