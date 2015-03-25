@@ -32,7 +32,7 @@
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command/>
+      <Command />
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -45,6 +45,7 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestDevelopment.cpp" />
     <ClCompile Include="TestConstness.cpp" />
     <ClCompile Include="TestException.cpp" />
     <ClCompile Include="TestExceptionBoundary.cpp" />
