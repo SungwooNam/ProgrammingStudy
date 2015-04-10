@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCLTest", "OpenCLTest\Op
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD476B3A-A331-414F-B042-40ADBE00FA9D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CUDATest", "CUDATest\CUDATest.vcxproj", "{60F983EE-5783-4FBC-A862-9CD43981AE89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,12 @@ Global
 		{D09E9DB7-6380-4E0A-A9C3-BD164BEEDD72}.Release|Win32.Build.0 = Release|Win32
 		{D09E9DB7-6380-4E0A-A9C3-BD164BEEDD72}.Release|x64.ActiveCfg = Release|x64
 		{D09E9DB7-6380-4E0A-A9C3-BD164BEEDD72}.Release|x64.Build.0 = Release|x64		
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Debug|Win32.Build.0 = Debug|Win32
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Debug|x64.ActiveCfg = Debug|Win32
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Release|Win32.ActiveCfg = Release|Win32
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Release|Win32.Build.0 = Release|Win32
+		{60F983EE-5783-4FBC-A862-9CD43981AE89}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
