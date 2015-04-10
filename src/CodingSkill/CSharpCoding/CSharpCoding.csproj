@@ -44,7 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryHeap.cs" />
+    <Compile Include="BinaryIntegerCode.cs" />
     <Compile Include="BinarySearchTree.cs" />
+    <Compile Include="BinarySearchTreeIndentation.cs" />
+    <Compile Include="BinaryTreeToDoublyLinkedListInOrder.cs" />
+    <Compile Include="BinaryTreeVisitRow.cs" />
+    <Compile Include="ConsecutiveSum.cs" />
     <Compile Include="DiagonalPrint.cs" />
     <Compile Include="FindAnagram.cs" />
     <Compile Include="FindConsecuitiveNumbers.cs" />
@@ -52,9 +57,12 @@
     <Compile Include="FindEvenNumbers.cs" />
     <Compile Include="FindMaxConsecutiveOnes.cs" />
     <Compile Include="FormatReadableDigits.cs" />
+    <Compile Include="GetLongestConsequitiveChars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplaceString.cs" />
+    <Compile Include="SearchForMinimumLengthSet.cs" />
     <Compile Include="TestSDE.cs" />
+    <Compile Include="WordMatchingInBoard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

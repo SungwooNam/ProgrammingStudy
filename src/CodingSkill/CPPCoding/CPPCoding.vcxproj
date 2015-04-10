@@ -94,7 +94,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cloest_common_ancestor_O1.cpp" />
+    <ClCompile Include="SumToZeroThreeItem.cpp" />
     <ClCompile Include="TestCodilityDemo.cpp" />
+    <ClCompile Include="TestInplaceReverseWord.cpp" />
     <ClCompile Include="TestMain.cpp" />
     <ClCompile Include="TestProjectEulerTo13.cpp" />
     <ClCompile Include="TestProjectEulerTo25.cpp" />
