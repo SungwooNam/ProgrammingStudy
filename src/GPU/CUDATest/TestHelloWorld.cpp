@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE( TestUsingGPU )
     err = cudaGetLastError();
     if (err != cudaSuccess) return;
 
-    err = cudaMemcpy(devOutput, &output[0], inputLength, cudaMemcpyDeviceToHost);
+    err = cudaMemcpy( &output[0], devOutput, inputLength, cudaMemcpyDeviceToHost);
     if (err != cudaSuccess) return;
 
 	printf( "output string : " );
