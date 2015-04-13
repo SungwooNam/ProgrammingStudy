@@ -7,7 +7,7 @@ __global__ void helloworld(const char *in, char *out, int count)
 
     if (i < count)
     {
-		out[num] = in[num] + 1;
+		out[i] = in[i] + 1;
     }
 }
 
