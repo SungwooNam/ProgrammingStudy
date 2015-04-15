@@ -6,10 +6,12 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="LuaCommon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestLua.cpp" />
+    <ClCompile Include="TestLuaBind.cpp" />
   </ItemGroup>
 </Project>

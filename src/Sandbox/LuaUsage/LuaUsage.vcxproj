@@ -29,16 +29,28 @@
   <Import Project="$(SRC_ROOT)\Build\BoostUnitTest.Default.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SRC_ROOT)\3rdParty\Lua5.1\include;$(SRC_ROOT)\3rdParty\luabind-0.9.1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;LUABIND_DYNAMIC_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command />
+    </PostBuildEvent>
+    <Link>
+      <AdditionalLibraryDirectories>$(SRC_ROOT)\3rdParty\Lua5.1\lib;$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">lua5.1.lib;luabindd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">lua5.1.lib;luabind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)'=='Debug'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.1\lib\*.dll $(TargetDir) /Y
+xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\luabindd.dll $(TargetDir) /Y </Command>
+      <Command Condition="'$(Configuration)'=='Release'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.1\lib\*.dll $(TargetDir) /Y
+xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\luabind.dll $(TargetDir) /Y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LuaCommon.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -48,6 +60,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestLua.cpp" />
+    <ClCompile Include="TestLuaBind.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
