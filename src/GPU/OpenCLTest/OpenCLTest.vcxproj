@@ -29,7 +29,7 @@
   <Import Project="$(SRC_ROOT)\Build\BoostUnitTest.Default.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\AMD APP SDK\2.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AMDAPPSDKROOT)\include;$(CUDA_PATH)\include;..\OpenCLCommon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__CL_ENABLE_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
@@ -38,8 +38,8 @@ copy KernelGPU_Inspection.cl "$(OutDir)KernelGPU_Inspection.cl" /Y
 copy KernelCPU_Inspection.cl "$(OutDir)KernelCPU_Inspection.cl" /Y</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Platform)'=='Win32'">C:\Program Files (x86)\AMD APP SDK\2.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Platform)'=='x64'">C:\Program Files (x86)\AMD APP SDK\2.9\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='Win32'">$(AMDAPPSDKROOT)\lib\x86;$(CUDA_PATH)\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='x64'">$(AMDAPPSDKROOT)\lib\x86_64;$(CUDA_PATH)\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
