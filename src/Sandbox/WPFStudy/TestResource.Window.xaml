@@ -1,0 +1,13 @@
+﻿<Window
+    x:Class="WPFStudy.TestResourceWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Window.Resources>
+        <Image x:Key="zoom" Width="100"  Height="100" Source="zoom.gif"/>
+    </Window.Resources>
+    
+    <StackPanel>
+        <StaticResource ResourceKey="zoom"/>
+    </StackPanel>
+</Window>
