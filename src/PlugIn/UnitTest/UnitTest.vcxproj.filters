@@ -12,24 +12,24 @@
       <Filter>IFooBar</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\PlugIn\IPlugIn.h">
-      <Filter>APS</Filter>
+      <Filter>PlugInCommon</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\PlugIn\PlugIn.h">
-      <Filter>APS</Filter>
+      <Filter>PlugInCommon</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\PlugIn\PlugInModule.hpp">
-      <Filter>APS</Filter>
+      <Filter>PlugInCommon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="APS">
-      <UniqueIdentifier>{48581b78-c391-499a-a6c8-5a550507d600}</UniqueIdentifier>
-    </Filter>
     <Filter Include="IFooBar">
       <UniqueIdentifier>{95adbc5f-4129-4f4d-ba73-8596afe21288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlugInCommon">
+      <UniqueIdentifier>{48581b78-c391-499a-a6c8-5a550507d600}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
