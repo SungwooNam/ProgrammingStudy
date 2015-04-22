@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="PlugInCommon">
+      <UniqueIdentifier>{d96c632b-6c83-4331-bd04-7d081e42b2aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFooBar">
+      <UniqueIdentifier>{5fb8c780-4d15-46da-9411-4035ec1b707b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\Common\IFooBar.h">
+      <Filter>IFooBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PlugIn\IPlugIn.h">
+      <Filter>PlugInCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PlugIn\PlugIn.h">
+      <Filter>PlugInCommon</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="PlugInFooBar.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

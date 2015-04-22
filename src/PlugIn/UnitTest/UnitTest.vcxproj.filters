@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestPlugInModule.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\Common\IFooBar.h">
+      <Filter>IFooBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PlugIn\IPlugIn.h">
+      <Filter>APS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PlugIn\PlugIn.h">
+      <Filter>APS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PlugIn\PlugInModule.hpp">
+      <Filter>APS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="APS">
+      <UniqueIdentifier>{48581b78-c391-499a-a6c8-5a550507d600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFooBar">
+      <UniqueIdentifier>{95adbc5f-4129-4f4d-ba73-8596afe21288}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

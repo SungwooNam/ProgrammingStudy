@@ -21,7 +21,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir>..\bin\$(Configuration)\</OutDir>
+    <OutDir>..\bin\$(Platform)$(Configuration)\</OutDir>
     <IntDir>..\Intermediate\$(ProjectName)\$(Configuration)\</IntDir>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
