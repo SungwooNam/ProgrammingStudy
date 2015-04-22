@@ -1,0 +1,60 @@
+﻿<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Simple Window" 
+    x:Class="WPFStudy.TestBinding.UsingObservableCollection"
+    xmlns:local="clr-namespace:WPFStudy.TestBinding"
+>
+    <Window.Resources>
+        <local:Photos x:Key="photos"/>
+        <local:Photos x:Key="album"/>
+    </Window.Resources>    
+    <StackPanel Orientation="Horizontal" >
+        <StackPanel>
+            <Label 
+                x:Name="numItemsLabel"
+                Content="{Binding Source={StaticResource photos}, Path=Count}"
+                DockPanel.Dock="Top"/>
+            <Button Content="Add" Click="AddClicked"/>
+            <ListBox 
+                ItemsSource="{Binding Source={StaticResource photos}}"
+                IsSynchronizedWithCurrentItem="True"
+                Height ="100" >
+            </ListBox>
+            <ListBox 
+                DisplayMemberPath="ImagePath"
+                ItemsSource="{Binding Source={StaticResource photos}}"
+                IsSynchronizedWithCurrentItem="True"
+                Height ="100" > 
+            </ListBox>
+        </StackPanel>
+        <StackPanel DataContext="{StaticResource album}">
+            <Label 
+                ContentStringFormat="{}{0} item(s)"
+                Content="{Binding Path=Count}"
+                DockPanel.Dock="Top"/>
+            <Button Content="Add" Click="AddAlbumClicked"/>
+            <ListBox 
+                ItemsSource="{Binding}"
+                IsSynchronizedWithCurrentItem="True"
+                Height ="100" >
+            </ListBox>
+            <ListBox 
+                DisplayMemberPath="ImagePath"
+                ItemsSource="{Binding}"
+                IsSynchronizedWithCurrentItem="True"
+                Height ="100" >
+            </ListBox>
+        </StackPanel>
+        <StackPanel DataContext="{StaticResource album}">
+            <ListBox 
+                ItemStringFormat="{}{0:C}"
+                xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                <sys:Int32>-9</sys:Int32>
+                <sys:Int32>9</sys:Int32>
+                <sys:Int32>1234</sys:Int32>
+                <sys:Int32>1234567</sys:Int32>
+            </ListBox>
+        </StackPanel>
+    </StackPanel>
+</Window>

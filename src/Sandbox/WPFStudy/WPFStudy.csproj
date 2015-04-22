@@ -29,6 +29,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Photos.cs" />
+    <Compile Include="TestBinding.cs" />
+    <Compile Include="TestBinding.UsingBinding.xaml.cs">
+      <DependentUpon>TestBinding.UsingBinding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestBinding.UsingDataTemplate.xaml.cs">
+      <DependentUpon>TestBinding.UsingDataTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestBinding.UsingObservableCollection.xaml.cs">
+      <DependentUpon>TestBinding.UsingObservableCollection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestBinding.UsingValueConverter.xaml.cs">
+      <DependentUpon>TestBinding.UsingValueConverter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestDataProvider.cs" />
+    <Compile Include="TestDataProvider.WithXmlProvider.xaml.cs">
+      <DependentUpon>TestDataProvider.WithXmlProvider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestHelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -37,13 +55,64 @@
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
     <Compile Include="TestResource.cs" />
+    <Compile Include="TestResource.SystemResource.xaml.cs">
+      <DependentUpon>TestResource.SystemResource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestResource.Window.xaml.cs">
       <DependentUpon>TestResource.Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestResource.DynamicResourceCanBeDefinedAnywhere.xaml.cs">
+      <DependentUpon>TestResource.DynamicResourceCanBeDefinedAnywhere.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestStyles.cs" />
+    <Compile Include="TestStyles.UsingSetter.xaml.cs">
+      <DependentUpon>TestStyles.UsingSetter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestTemplate.cs" />
+    <Compile Include="TestTemplate.UsingControlTemplate.xaml.cs">
+      <DependentUpon>TestTemplate.UsingControlTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualTreeExtensions.cs" />
     <Compile Include="WindowPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="TestBinding.UsingBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBinding.UsingDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBinding.UsingObservableCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBinding.UsingValueConverter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestDataProvider.WithXmlProvider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestResource.SystemResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TestResource.Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestResource.DynamicResourceCanBeDefinedAnywhere.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestStyles.UsingSetter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestTemplate.UsingControlTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -58,6 +127,11 @@
     <Resource Include="Resources\zoom.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bird.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
