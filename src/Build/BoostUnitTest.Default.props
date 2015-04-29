@@ -22,7 +22,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir>..\bin\$(Platform)$(Configuration)\</OutDir>
-    <IntDir>..\bin\Intermediate\$(Platform)$(Configuration)\</IntDir>
+    <IntDir>..\bin\Intermediate\$(ProjectName)\$(Platform)$(Configuration)\</IntDir>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
