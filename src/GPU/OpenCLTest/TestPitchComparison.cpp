@@ -3,6 +3,7 @@
 #include <CL/cl.hpp>
 #include "OpenCLWorkBench.h"
 #include <boost/cstdint.hpp>
+#include <iostream>
 
 using namespace std;
 using namespace OpenCLWorkBench;
