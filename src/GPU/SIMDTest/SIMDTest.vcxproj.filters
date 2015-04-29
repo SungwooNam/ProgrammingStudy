@@ -6,10 +6,18 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\Common\StopWatch.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestHorizontalPitchComparison.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{38608939-7e95-4a50-ac5d-ae75d4958774}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

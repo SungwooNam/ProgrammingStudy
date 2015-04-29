@@ -3,6 +3,7 @@
 #include <boost\test\unit_test.hpp>
 #include <cstdint>
 #include <emmintrin.h>
+#include "StopWatch.hpp"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ BOOST_AUTO_TEST_CASE( Test_PlainC_HorizontalPitch )
 	uint8_t maxError = 1;
 
 	BOOST_CHECK( PlainC_HorizontalPitch( 80, 100, 0, 0, 100, 10.8 ) <= maxError );
+	BOOST_CHECK( ( PlainC_HorizontalPitch( 40, 100, 0, 0, 100, 10.8 ) - 80 ) <= maxError );
 
 	BOOST_CHECK( PlainC_HorizontalPitch( 100, 90, 110, 110, 90, 10.5 ) <= maxError );
 	BOOST_CHECK( PlainC_HorizontalPitch( 100, 50, 150, 150, 50, 10.5 ) <= maxError );
@@ -152,7 +154,6 @@ void SSE_Pitch0(
 BOOST_AUTO_TEST_CASE( Test_SSE_Pitch0 )
 {  
 	int width = 32, height = 2;
-	float pitch = 10.5f;
 
 	vector<uint8_t> src( width*height, 80 );
 	vector<uint8_t> dst( width*height, 255 );
@@ -168,7 +169,47 @@ BOOST_AUTO_TEST_CASE( Test_SSE_Pitch0 )
 		10.8f );
 
 	BOOST_CHECK( dst[11] <= 1 );
+
+	src[ 0 ] = 100; 	src[ 1 ] = 0;
+	src[ 11 ] = 40;
+	src[ 21 ] = 0; src[ 22 ] = 100;
+
+	SSE_Pitch0( 
+		&src[0], &dst[0], 
+		width, height, 
+		11, 0, 20, 1,
+		10.8f );
+
+	BOOST_CHECK( (dst[11] - 80)  <= 1 );
 }
+
+BOOST_AUTO_TEST_CASE( Test_Speed_SSE_Pitch0 )
+{  
+	int width = 12*1024, height = 1024;
+	float pitch = 10.8f;
+	int loopCount = 10;
+
+	vector<uint8_t> src( width*height, 80 );
+	vector<uint8_t> dst( width*height, 255 );
+
+	ProgrammingStudy::StopWatch w;
+
+	for( int i=0; i<loopCount; ++i )
+	{
+		SSE_Pitch0( 
+			&src[0], &dst[0], 
+			width, height, 
+			(int)(pitch+1), 0, width-(int)(pitch+1), height-1,
+			pitch );
+	}
+
+	double duration = w.Elapsed();
+
+	printf( "\nTest SSE_Pitch0 : %.1f MB/s", (double)(width*height*loopCount / duration) / (1024*1024) );
+	printf( "\n using image size %dx%d with %d loop", width, height, loopCount );
+	printf( "\n");
+}
+
 
 #endif
 
@@ -247,7 +288,6 @@ void SSE_Intrinsics_Pitch0(
 BOOST_AUTO_TEST_CASE( Test_SSE_Intrinsics_Pitch0 )
 {  
 	int width = 32, height = 2;
-	float pitch = 10.5f;
 
 	vector<uint8_t> src( width*height, 80 );
 	vector<uint8_t> dst( width*height, 255 );
@@ -263,6 +303,49 @@ BOOST_AUTO_TEST_CASE( Test_SSE_Intrinsics_Pitch0 )
 		10.8f );
 
 	BOOST_CHECK( dst[11] <= 1 );
+
+
+	src[ 0 ] = 100; 	src[ 1 ] = 0;
+	src[ 11 ] = 40;
+	src[ 21 ] = 0; src[ 22 ] = 100;
+
+	SSE_Intrinsics_Pitch0( 
+		&src[0], &dst[0], 
+		width, height, 
+		11, 0, 20, 1,
+		10.8f );
+
+	BOOST_CHECK( (dst[11] - 80)  <= 1 );
+
 }
+
+
+BOOST_AUTO_TEST_CASE( Test_Speed_SSE_Intrinsics_Pitch0 )
+{  
+	int width = 12*1024, height = 1024;
+	float pitch = 10.8f;
+	int loopCount = 10;
+
+	vector<uint8_t> src( width*height, 80 );
+	vector<uint8_t> dst( width*height, 255 );
+
+	ProgrammingStudy::StopWatch w;
+
+	for( int i=0; i<loopCount; ++i )
+	{
+		SSE_Intrinsics_Pitch0( 
+			&src[0], &dst[0], 
+			width, height, 
+			(int)(pitch+1), 0, width-(int)(pitch+1), height-1,
+			pitch );
+	}
+
+	double duration = w.Elapsed();
+
+	printf( "\nTest SSE_Intrinsic_Pitch00 : %.1f MB/s", (double)(width*height*loopCount / duration) / (1024*1024) );
+	printf( "\n using image size %dx%d with %d loop", width, height, loopCount );
+	printf( "\n");
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()
