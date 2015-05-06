@@ -1,3 +1,5 @@
+#include "StdAfx.h"
+
 #define BOOST_TEST_MODULE SandBoxTest
 #include <boost/test/included/unit_test.hpp>
 
