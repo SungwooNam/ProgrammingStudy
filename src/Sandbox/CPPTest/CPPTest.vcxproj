@@ -34,6 +34,8 @@
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <Link>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -50,10 +52,12 @@
     <ClCompile Include="TestException.cpp" />
     <ClCompile Include="TestExceptionBoundary.cpp" />
     <ClCompile Include="TestFloatingPoint.cpp" />
+    <ClCompile Include="TestMultiThreading.cpp" />
     <ClCompile Include="TestPointerMemoryAllocation.cpp" />
     <ClCompile Include="TestPointerResourceHandling.cpp" />
     <ClCompile Include="TestPointers.cpp" />
     <ClCompile Include="TestSmartPointer.cpp" />
+    <ClCompile Include="TestSTLDataStructure.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
