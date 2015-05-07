@@ -1,5 +1,6 @@
 #include <boost/test/unit_test.hpp>
 #include <boost/shared_ptr.hpp>
+#include <iostream>
 #include <fstream>
 
 // need preprocessor : LUABIND_DYNAMIC_LINK
