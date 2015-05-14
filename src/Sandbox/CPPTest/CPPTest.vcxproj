@@ -45,8 +45,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TestDesignPatternCallback.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestDesignPatternFactory.cpp" />
     <ClCompile Include="TestDevelopment.cpp" />
     <ClCompile Include="TestConstness.cpp" />
     <ClCompile Include="TestException.cpp" />
