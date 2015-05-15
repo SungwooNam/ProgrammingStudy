@@ -49,6 +49,8 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestDesignPatternFactory.cpp" />
+    <ClCompile Include="TestDesignPatternObserver.cpp" />
+    <ClCompile Include="TestDesignPatternSingleton.cpp" />
     <ClCompile Include="TestDevelopment.cpp" />
     <ClCompile Include="TestConstness.cpp" />
     <ClCompile Include="TestException.cpp" />
