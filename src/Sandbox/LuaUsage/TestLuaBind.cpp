@@ -12,7 +12,7 @@
 
 using namespace std;
 using namespace boost;
-using namespace luabind;
+using namespace luabind; 
 
 namespace TestLuaBind
 {
