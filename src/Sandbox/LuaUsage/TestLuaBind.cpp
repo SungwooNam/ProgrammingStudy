@@ -3,12 +3,14 @@
 #include <iostream>
 #include <fstream>
 
+#include "LuaCommon.h"
+
+
 // need preprocessor : LUABIND_DYNAMIC_LINK
 #pragma warning(disable:4251)
 #include "luabind\luabind.hpp"
 #include "luabind\object.hpp"
 
-#include "LuaCommon.h"
 
 using namespace std;
 using namespace boost;
@@ -536,3 +538,4 @@ BOOST_AUTO_TEST_CASE( TestLuaFunctionCallWithArgument )
 }
 
 }
+

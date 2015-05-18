@@ -146,11 +146,18 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
         && cls->get_class_type() == class_rep::lua_class
         && !cls->bases().empty())
     {
+#if LUA_VERSION_NUM == 503
+		lua_pushvalue(L, 1);
+		lua_pushvalue(L, -2);
+        lua_pushcclosure(L, super_callback, 2);
+        lua_setglobal(L, "super");
+#else
         lua_pushstring(L, "super");
         lua_pushvalue(L, 1);
         lua_pushvalue(L, -3);
         lua_pushcclosure(L, super_callback, 2);
         lua_settable(L, LUA_GLOBALSINDEX);
+#endif
     }
 
     lua_pushvalue(L, -1);
@@ -169,9 +176,14 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
 
     if (super_deprecation_disabled)
     {
+#if LUA_VERSION_NUM == 503
+        lua_pushnil(L);
+        lua_setglobal(L, "super");
+#else
         lua_pushstring(L, "super");
         lua_pushnil(L);
         lua_settable(L, LUA_GLOBALSINDEX);
+#endif
     }
 
     return 1;
@@ -214,17 +226,30 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 
 	if (base->bases().empty())
 	{
+#if LUA_VERSION_NUM == 503
+		lua_pushnil(L);
+        lua_setglobal(L, "super");
+#else
 		lua_pushstring(L, "super");
 		lua_pushnil(L);
 		lua_settable(L, LUA_GLOBALSINDEX);
+#endif
 	}
 	else
 	{
+
+#if LUA_VERSION_NUM == 503
+		lua_pushlightuserdata(L, base);
+		lua_pushvalue(L, lua_upvalueindex(2));
+		lua_pushcclosure(L, super_callback, 2);
+        lua_setglobal(L, "super");
+#else
 		lua_pushstring(L, "super");
 		lua_pushlightuserdata(L, base);
 		lua_pushvalue(L, lua_upvalueindex(2));
 		lua_pushcclosure(L, super_callback, 2);
 		lua_settable(L, LUA_GLOBALSINDEX);
+#endif
 	}
 
 	base->get_table(L);
@@ -241,10 +266,14 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 	// TODO: instead of clearing the global variable "super"
 	// store it temporarily in the registry. maybe we should
 	// have some kind of warning if the super global is used?
-	lua_pushstring(L, "super");
-	lua_pushnil(L);
-	lua_settable(L, LUA_GLOBALSINDEX);
-
+#if LUA_VERSION_NUM == 503
+		lua_pushnil(L);
+        lua_setglobal(L, "super");
+#else
+		lua_pushstring(L, "super");
+		lua_pushnil(L);
+		lua_settable(L, LUA_GLOBALSINDEX);
+#endif
 	return 0;
 }
 
@@ -292,7 +321,12 @@ int luabind::detail::class_rep::static_class_gettable(lua_State* L)
 
 	const char* key = lua_tostring(L, 2);
 
+
+#if LUA_VERSION_NUM >= 503
+	if (std::strlen(key) != lua_rawlen(L, 2))
+#else
 	if (std::strlen(key) != lua_strlen(L, 2))
+#endif
 	{
 		lua_pushnil(L);
 		return 1;

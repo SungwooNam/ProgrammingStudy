@@ -136,6 +136,18 @@ namespace luabind {
     {
         if (m_name)
         {
+#if LUA_VERSION_NUM == 503
+			lua_getglobal( m_state, m_name );
+
+			if (!lua_istable(m_state, -1))
+			{
+				lua_pop(m_state, 1);
+
+				lua_newtable(m_state);
+				lua_pushvalue(m_state,-1);
+				lua_setglobal(m_state, m_name);
+			}
+#else
             lua_pushstring(m_state, m_name);
             lua_gettable(m_state, LUA_GLOBALSINDEX);
 
@@ -148,10 +160,15 @@ namespace luabind {
                 lua_pushvalue(m_state, -2);
                 lua_settable(m_state, LUA_GLOBALSINDEX);
             }
+#endif
         }
         else
         {
-            lua_pushvalue(m_state, LUA_GLOBALSINDEX);
+#if LUA_VERSION_NUM == 503
+			lua_pushglobaltable( m_state );
+#else
+			lua_pushvalue(m_state, LUA_GLOBALSINDEX);
+#endif
         }
 
         lua_pop_stack guard(m_state);

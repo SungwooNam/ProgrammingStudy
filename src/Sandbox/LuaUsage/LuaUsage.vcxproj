@@ -29,21 +29,23 @@
   <Import Project="$(SRC_ROOT)\Build\BoostUnitTest.Default.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SRC_ROOT)\3rdParty\Lua5.1\include;$(SRC_ROOT)\3rdParty\luabind-0.9.1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SRC_ROOT)\3rdParty\Lua5.3\include;$(SRC_ROOT)\3rdParty\luabind-0.9.1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;LUABIND_DYNAMIC_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
     </PostBuildEvent>
     <Link>
-      <AdditionalLibraryDirectories>$(SRC_ROOT)\3rdParty\Lua5.1\lib;$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">lua5.1.lib;luabindd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">lua5.1.lib;luabind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SRC_ROOT)\3rdParty\Lua5.3\lib\$(Platform);$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">lua53.lib;luabindd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">lua53.lib;luabind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)'=='Debug'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.1\lib\*.dll $(TargetDir) /Y
-xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform)\luabindd.dll $(TargetDir) /Y </Command>
-      <Command Condition="'$(Configuration)'=='Release'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.1\lib\*.dll $(TargetDir) /Y
-xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform)\luabind.dll $(TargetDir) /Y </Command>
+      <Command Condition="'$(Configuration)'=='Debug'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.3\lib\$(Platform)\*.dll $(TargetDir) /Y
+xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform)\luabindd.dll $(TargetDir) /Y
+</Command>
+      <Command Condition="'$(Configuration)'=='Release'">xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\Lua5.3\lib\$(Platform)\*.dll $(TargetDir) /Y
+xcopy $(ProjectDir)$(SRC_ROOT)\3rdParty\luabind-0.9.1\lib\$(Platform)\luabind.dll $(TargetDir) /Y 
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

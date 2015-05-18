@@ -178,21 +178,36 @@ namespace
         lua_settable(L, LUA_REGISTRYINDEX);
 
         // add functions (class, cast etc...)
+#if LUA_VERSION_NUM == 503
+        lua_pushcclosure(L, detail::create_class::stage1, 0);
+        lua_setglobal(L, "class");
+#else
         lua_pushstring(L, "class");
         lua_pushcclosure(L, detail::create_class::stage1, 0);
         lua_settable(L, LUA_GLOBALSINDEX);
+#endif
 
+#if LUA_VERSION_NUM == 503
+        lua_pushcclosure(L, &make_property, 0);
+        lua_setglobal(L, "property");
+#else
         lua_pushstring(L, "property");
         lua_pushcclosure(L, &make_property, 0);
         lua_settable(L, LUA_GLOBALSINDEX);
+#endif
 
         lua_pushlightuserdata(L, &main_thread_tag);
         lua_pushlightuserdata(L, L);
         lua_rawset(L, LUA_REGISTRYINDEX);
 
+#if LUA_VERSION_NUM == 503
+        lua_pushcclosure(L, &deprecated_super, 0);
+        lua_setglobal(L, "super");
+#else
         lua_pushstring(L, "super");
         lua_pushcclosure(L, &deprecated_super, 0);
         lua_settable(L, LUA_GLOBALSINDEX);
+#endif
     }
 
 } // namespace luabind
