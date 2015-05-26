@@ -45,6 +45,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TestBoostAsio.cpp" />
     <ClCompile Include="TestDesignPatternCallback.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
