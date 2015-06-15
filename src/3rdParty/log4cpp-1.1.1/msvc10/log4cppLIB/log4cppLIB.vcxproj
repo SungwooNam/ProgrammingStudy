@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AFA856A0-2388-4673-9277-CE4061709569}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>..\..\lib\$(Platform)$(Configuration)\</OutDir>
+    <IntDir>..\..\Intermediate\$(Platform)$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <TargetName>log4cpp</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions> <!--..\..\..\boost_1_53;  LOG4CPP_HAVE_BOOST;-->
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Lib>
+    </Lib>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+    </Lib>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Lib>
+    </Lib>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\AbortAppender.cpp" />
+    <ClCompile Include="..\..\src\Appender.cpp" />
+    <ClCompile Include="..\..\src\AppendersFactory.cpp" />
+    <ClCompile Include="..\..\src\AppenderSkeleton.cpp" />
+    <ClCompile Include="..\..\src\BasicConfigurator.cpp" />
+    <ClCompile Include="..\..\src\BasicLayout.cpp" />
+    <ClCompile Include="..\..\src\BufferingAppender.cpp" />
+    <ClCompile Include="..\..\src\Category.cpp" />
+    <ClCompile Include="..\..\src\CategoryStream.cpp" />
+    <ClCompile Include="..\..\src\Configurator.cpp" />
+    <ClCompile Include="..\..\src\DummyThreads.cpp" />
+    <ClCompile Include="..\..\src\FactoryParams.cpp" />
+    <ClCompile Include="..\..\src\FileAppender.cpp" />
+    <ClCompile Include="..\..\src\Filter.cpp" />
+    <ClCompile Include="..\..\src\FixedContextCategory.cpp" />
+    <ClCompile Include="..\..\src\HierarchyMaintainer.cpp" />
+    <ClCompile Include="..\..\src\IdsaAppender.cpp" />
+    <ClCompile Include="..\..\src\LayoutAppender.cpp" />
+    <ClCompile Include="..\..\src\LayoutsFactory.cpp" />
+    <ClCompile Include="..\..\src\LevelEvaluator.cpp" />
+    <ClCompile Include="..\..\src\Localtime.cpp" />
+    <ClCompile Include="..\..\src\LoggingEvent.cpp" />
+    <ClCompile Include="..\..\src\MSThreads.cpp" />
+    <ClCompile Include="..\..\src\NDC.cpp" />
+    <ClCompile Include="..\..\src\NTEventLogAppender.cpp" />
+    <ClCompile Include="..\..\src\OmniThreads.cpp" />
+    <ClCompile Include="..\..\src\OstreamAppender.cpp" />
+    <ClCompile Include="..\..\src\PassThroughLayout.cpp" />
+    <ClCompile Include="..\..\src\PatternLayout.cpp" />
+    <ClCompile Include="..\..\src\PortabilityImpl.cpp" />
+    <ClCompile Include="..\..\src\Priority.cpp" />
+    <ClCompile Include="..\..\src\Properties.cpp" />
+    <ClCompile Include="..\..\src\PropertyConfigurator.cpp" />
+    <ClCompile Include="..\..\src\PropertyConfiguratorImpl.cpp" />
+    <ClCompile Include="..\..\src\PThreads.cpp" />
+    <ClCompile Include="..\..\src\RemoteSyslogAppender.cpp" />
+    <ClCompile Include="..\..\src\RollingFileAppender.cpp" />
+    <ClCompile Include="..\..\src\SimpleConfigurator.cpp" />
+    <ClCompile Include="..\..\src\SimpleLayout.cpp" />
+    <ClCompile Include="..\..\src\SmtpAppender.cpp" />
+    <ClCompile Include="..\..\src\StringQueueAppender.cpp" />
+    <ClCompile Include="..\..\src\StringUtil.cpp" />
+    <ClCompile Include="..\..\src\TimeStamp.cpp" />
+    <ClCompile Include="..\..\src\TriggeringEventEvaluatorFactory.cpp" />
+    <ClCompile Include="..\..\src\Win32DebugAppender.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\log4cpp\Appender.hh" />
+    <None Include="..\..\include\log4cpp\AppendersFactory.hh" />
+    <None Include="..\..\include\log4cpp\AppenderSkeleton.hh" />
+    <None Include="..\..\include\log4cpp\BasicConfigurator.hh" />
+    <None Include="..\..\include\log4cpp\BasicLayout.hh" />
+    <None Include="..\..\include\log4cpp\threading\BoostThreads.hh" />
+    <None Include="..\..\include\log4cpp\BufferingAppender.hh" />
+    <None Include="..\..\include\log4cpp\Category.hh" />
+    <None Include="..\..\include\log4cpp\CategoryStream.hh" />
+    <None Include="..\..\include\log4cpp\Configurator.hh" />
+    <None Include="..\..\include\log4cpp\ConfiguratorSkeleton.hh" />
+    <None Include="..\..\include\log4cpp\threading\DummyThreads.hh" />
+    <None Include="..\..\include\log4cpp\Evaluator.hh" />
+    <None Include="..\..\include\log4cpp\Export.hh" />
+    <None Include="..\..\include\log4cpp\FactoryParams.hh" />
+    <None Include="..\..\include\log4cpp\FileAppender.hh" />
+    <None Include="..\..\include\log4cpp\Filter.hh" />
+    <None Include="..\..\include\log4cpp\FixedContextCategory.hh" />
+    <None Include="..\..\include\log4cpp\HierarchyMaintainer.hh" />
+    <None Include="..\..\include\log4cpp\IdsaAppender.hh" />
+    <None Include="..\..\include\log4cpp\Layout.hh" />
+    <None Include="..\..\include\log4cpp\LayoutAppender.hh" />
+    <None Include="..\..\include\log4cpp\LayoutsFactory.hh" />
+    <None Include="..\..\include\log4cpp\LevelEvaluator.hh" />
+    <None Include="..\..\include\log4cpp\LoggingEvent.hh" />
+    <None Include="..\..\include\log4cpp\threading\MSThreads.hh" />
+    <None Include="..\..\include\log4cpp\NDC.hh" />
+    <None Include="..\..\include\log4cpp\NTEventLogAppender.hh" />
+    <None Include="..\..\include\log4cpp\threading\OmniThreads.hh" />
+    <None Include="..\..\include\log4cpp\OstreamAppender.hh" />
+    <None Include="..\..\include\log4cpp\PassThroughLayout.hh" />
+    <None Include="..\..\include\log4cpp\PatternLayout.hh" />
+    <None Include="..\..\include\log4cpp\Portability.hh" />
+    <None Include="..\..\src\Localtime.hh" />
+    <None Include="..\src\PortabilityImpl.hh" />
+    <None Include="..\..\include\log4cpp\Priority.hh" />
+    <None Include="..\..\src\Properties.hh" />
+    <None Include="..\..\include\log4cpp\PropertyConfigurator.hh" />
+    <None Include="..\..\include\log4cpp\RemoteSyslogAppender.hh" />
+    <None Include="..\..\include\log4cpp\RollingFileAppender.hh" />
+    <None Include="..\..\include\log4cpp\SimpleConfigurator.hh" />
+    <None Include="..\..\include\log4cpp\SimpleLayout.hh" />
+    <None Include="..\..\include\log4cpp\SmtpAppender.hh" />
+    <None Include="..\..\include\log4cpp\StringQueueAppender.hh" />
+    <None Include="..\..\include\log4cpp\SyslogAppender.hh" />
+    <None Include="..\..\include\log4cpp\threading\Threading.hh" />
+    <None Include="..\..\include\log4cpp\TimeStamp.hh" />
+    <None Include="..\..\include\log4cpp\TriggeringEventEvaluator.hh" />
+    <None Include="..\..\include\log4cpp\TriggeringEventEvaluatorFactory.hh" />
+    <None Include="..\..\include\log4cpp\Win32DebugAppender.hh" />
+    <CustomBuild Include="..\NTEventLogCategories.mc">
+      <Command>if not exist $(OutDir) md $(OutDir)
+mc.exe -h $(OutDir) -r $(OutDir) $(ProjectDir)..\%(Filename).mc
+RC.exe -r -fo $(OutDir)%(Filename).res $(OutDir)%(Filename).rc
+link.exe /MACHINE:IX86 -dll -noentry -out:$(OutDir)NTEventLogAppender.dll $(OutDir)%(Filename).res
+</Command>
+      <Outputs>$(OutDir)NTEventLogAppender.dll;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\log4cpp\config-win32.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

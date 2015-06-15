@@ -29,16 +29,21 @@
   <Import Project="$(SRC_ROOT)\Build\BoostUnitTest.Default.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\3rdParty\log4cpp-1.1.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command />
+      <Command>xcopy testConfig.log4cpp.properties $(OutDir) /Y</Command>
     </PostBuildEvent>
     <Link>
+    </Link>
+    <Link>
+      <AdditionalLibraryDirectories>$(SRC_ROOT)\3rdParty\log4cpp-1.1.1\lib\$(Platform)$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>log4cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="testConfig.log4cpp.properties"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -57,6 +62,7 @@
     <ClCompile Include="TestException.cpp" />
     <ClCompile Include="TestExceptionBoundary.cpp" />
     <ClCompile Include="TestFloatingPoint.cpp" />
+    <ClCompile Include="TestLog4cpp.cpp" />
     <ClCompile Include="TestMultiThreading.cpp" />
     <ClCompile Include="TestPointerMemoryAllocation.cpp" />
     <ClCompile Include="TestPointerResourceHandling.cpp" />
