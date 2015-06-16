@@ -114,7 +114,7 @@ namespace log4cpp {
             AppenderSet::iterator i = _appender.find(&appender);
             if (_appender.end() == i) {
                 _appender.insert(&appender);
-                _ownsAppender[&appender] = false;
+                _ownsAppender[&appender] = true;
             }
         }
     }
