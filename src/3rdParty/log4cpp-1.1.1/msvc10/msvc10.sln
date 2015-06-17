@@ -5,19 +5,31 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug with Boost|Win32 = Debug with Boost|Win32
+		Debug with Boost|x64 = Debug with Boost|x64
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release with Boost|Win32 = Release with Boost|Win32
+		Release with Boost|x64 = Release with Boost|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AFA856A0-2388-4673-9277-CE4061709569}.Debug with Boost|Win32.ActiveCfg = Debug|Win32
 		{AFA856A0-2388-4673-9277-CE4061709569}.Debug with Boost|Win32.Build.0 = Debug|Win32
+		{AFA856A0-2388-4673-9277-CE4061709569}.Debug with Boost|x64.ActiveCfg = Debug|x64
+		{AFA856A0-2388-4673-9277-CE4061709569}.Debug with Boost|x64.Build.0 = Debug|x64
 		{AFA856A0-2388-4673-9277-CE4061709569}.Debug|Win32.ActiveCfg = Debug|Win32
 		{AFA856A0-2388-4673-9277-CE4061709569}.Debug|Win32.Build.0 = Debug|Win32
+		{AFA856A0-2388-4673-9277-CE4061709569}.Debug|x64.ActiveCfg = Debug|x64
+		{AFA856A0-2388-4673-9277-CE4061709569}.Debug|x64.Build.0 = Debug|x64
 		{AFA856A0-2388-4673-9277-CE4061709569}.Release with Boost|Win32.ActiveCfg = Release|Win32
 		{AFA856A0-2388-4673-9277-CE4061709569}.Release with Boost|Win32.Build.0 = Release|Win32
+		{AFA856A0-2388-4673-9277-CE4061709569}.Release with Boost|x64.ActiveCfg = Release|x64
+		{AFA856A0-2388-4673-9277-CE4061709569}.Release with Boost|x64.Build.0 = Release|x64
 		{AFA856A0-2388-4673-9277-CE4061709569}.Release|Win32.ActiveCfg = Release|Win32
 		{AFA856A0-2388-4673-9277-CE4061709569}.Release|Win32.Build.0 = Release|Win32
+		{AFA856A0-2388-4673-9277-CE4061709569}.Release|x64.ActiveCfg = Release|x64
+		{AFA856A0-2388-4673-9277-CE4061709569}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
