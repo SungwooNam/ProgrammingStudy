@@ -43,6 +43,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="log4cpp.properties" />
+    <None Include="log4cpp.win32debug.properties" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -103,4 +103,24 @@ BOOST_AUTO_TEST_CASE( TestCustomAppender )
 }
 
 
+BOOST_AUTO_TEST_CASE( TestWin32Debug ) 
+{   
+    try {
+		log4cpp::PropertyConfigurator::configure("log4cpp.win32debug.properties");
+    } catch(log4cpp::ConfigureFailure& f) {
+        std::cout << "Configure Problem " << f.what() << std::endl;
+		return;
+    }
+
+	log4cpp::Category& root = log4cpp::Category::getRoot();
+	root.warn("Initialization goes weird but you can see this only in the console");
+	 
+    log4cpp::Category& ALL = log4cpp::Category::getInstance(std::string("ALL"));
+	 
+    ALL.error( "During startup, serial port %s with baud rate %d can't be init!", "COM2", 9600 );
+    ALL.warn( "During intial process, IO Device %d shows io %d get %d", 3 ,4, 5);
+
+	log4cpp::Category::shutdown();
+}
+
 BOOST_AUTO_TEST_SUITE_END()
