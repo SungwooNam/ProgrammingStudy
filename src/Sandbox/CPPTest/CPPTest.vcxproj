@@ -32,7 +32,7 @@
       <AdditionalIncludeDirectories>..\..\3rdParty\log4cpp-1.1.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command>xcopy testConfig.log4cpp.properties $(OutDir) /Y</Command>
+      <Command>xcopy log4cpp.properties $(OutDir) /Y</Command>
     </PostBuildEvent>
     <Link>
     </Link>
@@ -42,8 +42,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="log4cpp.properties" />
     <None Include="ReadMe.txt" />
-    <None Include="testConfig.log4cpp.properties"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
