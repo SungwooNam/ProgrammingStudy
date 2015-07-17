@@ -523,7 +523,13 @@ namespace detail
           detail::stack_pop pop(m_interpreter, 2);
           m_key.push(m_interpreter);
           other.m_key.push(m_interpreter);
-          return lua_equal(m_interpreter, -2, -1) != 0;
+
+		  
+#if LUA_VERSION_NUM >= 503
+		return lua_rawequal(m_interpreter, -2, -1) != 0;
+#else
+		return lua_equal(m_interpreter, -2, -1) != 0;
+#endif
       }
 
       adl::iterator_proxy<AccessPolicy> dereference() const 
@@ -1207,8 +1213,12 @@ inline object newtable(lua_State* interpreter)
 // this could be optimized by returning a proxy
 inline object globals(lua_State* interpreter)
 {
+#if LUA_VERSION_NUM >= 503
+	lua_pushglobaltable(interpreter);
+#else
     lua_pushvalue(interpreter, LUA_GLOBALSINDEX);
-    detail::stack_pop pop(interpreter, 1);
+#endif
+	detail::stack_pop pop(interpreter, 1);
     return object(from_stack(interpreter, -1));
 }
 

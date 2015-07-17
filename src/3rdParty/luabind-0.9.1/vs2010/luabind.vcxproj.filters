@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="..\src\class.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\class_info.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\class_registry.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\class_rep.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\create_class.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\error.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exception_handler.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\function.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\inheritance.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\link_compatibility.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\object_rep.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\open.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pcall.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scope.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stack_content_by_name.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\weak_ref.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wrapper_base.cpp">
+      <Filter>luabindsrc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="luabindsrc">
+      <UniqueIdentifier>{cebf51eb-bdd0-4b08-9eeb-7a3c1973cb1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
