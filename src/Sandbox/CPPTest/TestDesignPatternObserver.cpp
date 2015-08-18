@@ -148,7 +148,11 @@ private:
 		GrabHandler( Inspector& t ) : This( t ) {}
 		void Notify( void* object, IEventArgPtr arg ) {
 			IFrameReceivedEventArg* fr = dynamic_cast<IFrameReceivedEventArg*>(arg.get());
-			This.Inspect( fr->GetImageData(), fr->GetImageSize());
+			if( fr != NULL ) {
+				This.Inspect( fr->GetImageData(), fr->GetImageSize());
+			} else {
+				throw Exception( "Not correct type" );
+			}
 		}
 	};
 
