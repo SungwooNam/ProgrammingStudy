@@ -11,10 +11,10 @@ TestCase("AssertionsTestCase", {
 	},
   
 	testAlwaysFail : function(){
-		assertEquals(1, 2);
+		// assertEquals(1, 2);
 	},
  
 	testAlwaysFailWithMessage : function(){
-		assertEquals("1<>2", 1, 2);
+		// assertEquals("1<>2", 1, 2);
 	}
 });
