@@ -36,7 +36,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CONSOLE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SRC_ROOT)\3rdParty\boost_1_53;$(SRC_ROOT);$(SRC_ROOT)\Common;..\bin\$(Configuration)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SRC_ROOT);$(SRC_ROOT)\3rdParty;$(SRC_ROOT)\3rdParty\boost_1_53;$(SRC_ROOT)\Common;..\bin\$(Configuration)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Async</ExceptionHandling>
     </ClCompile>
