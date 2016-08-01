@@ -1,8 +1,6 @@
 # from Machine Learning by Tom Mitchell , chapter 3
 
 import numpy as NP
-import itertools
-import functools
 import math
 
 def Entrophy( S ):

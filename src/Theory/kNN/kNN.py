@@ -16,17 +16,6 @@ def LoadTrainingExamples( file, separator ) :
         examples.append( [ float(e) for e in line.rstrip().split(separator) ] )
     return examples
 
-
-def PickColumns( A, I ) :
-    '''
->>> PickColumns( np.array( [[1,2,3],[4,5,6] ] ), [0,2] )
-matrix([[1, 3],
-        [4, 6]])
-    '''
-    P = [ A[:,i] for i in I ]
-    return np.matrix( P ).getT()
-
-
 def Normalize( A, minmax ) :
     '''
 >>> Normalize( np.matrix('1,2;0,1'), np.matrix('0,0;1,2'))
