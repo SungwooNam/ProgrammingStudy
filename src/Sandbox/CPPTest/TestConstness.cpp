@@ -42,6 +42,11 @@ BOOST_AUTO_TEST_CASE( TestConstFunctionsAndReturn )
 	Foo f1;
 	f1.Increase();
 	BOOST_CHECK_EQUAL( f1.Count(), 1 );
+
+	Foo& f2 = f1;
+	f2.Increase();
+
+	const Foo& f3 = f1;
 }
 
 
