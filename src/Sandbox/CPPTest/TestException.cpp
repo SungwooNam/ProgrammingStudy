@@ -90,7 +90,7 @@ public:
 	void GlassClampOn() 
 	{
 		if( m_IO.Get( EMERGENCY ) == false )
-			throw std::exception( "Emergency! Call ChanHi! Call Sungjun!" );
+			throw std::exception( "Emergency! Call ChanHi!" );
 
 		m_IO.Set( LEFT_CLAMP_PUSH_UP, true );
 
