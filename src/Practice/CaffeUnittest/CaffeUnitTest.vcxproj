@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F2C61603-2A36-48F2-9ABC-8175824E65BC}</ProjectGuid>
+    <ProjectName>CaffeUnittest</ProjectName>
+    <Keyword>Win32Proj</Keyword>
+    <ROOT>..\..</ROOT>
+  </PropertyGroup>
+  <Import Project="$(ROOT)\Build\CPPUnitTest.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+$(ROOT)\3rdParty\gflags\include;  
+$(ROOT)\3rdParty\glog\include;  
+$(ROOT)\3rdParty\protobuf-2.5.0-win\include;  
+$(ROOT)\3rdParty\caffe\include;	  
+$(ROOT)\3rdParty\boost_1_53;	  
+%(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;CPU_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>
+$(OutDir);
+$(ROOT)\3rdParty\gflags\lib\$(PlatformTarget)$(Configuration);  
+$(ROOT)\3rdParty\glog\lib\$(PlatformTarget)$(Configuration);  
+$(ROOT)\3rdParty\protobuf-2.5.0-win\lib\msvc\12.0\$(PlatformTarget)\$(Configuration);  
+$(ROOT)\3rdParty\caffe\lib;	  
+%(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+xcopy $(ROOT)\3rdParty\Poco\poco-1.7.9\$(PlatformTarget)\bin\PocoFoundation*.dll $(OutDir) /Y /D
+xcopy $(ROOT)\3rdParty\Poco\poco-1.7.9\$(PlatformTarget)\bin\CppUnit*.dll $(OutDir) /Y /D
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Fixture.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TestHelloWorld.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
