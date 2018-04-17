@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestFoo.cpp" />
+    <ClCompile Include="TestTemperatureCPP03.cpp" />
+    <ClCompile Include="TestTemperatureCPP11.cpp" />
+    <ClCompile Include="TestTemperatureCPP98.cpp" />
+    <ClCompile Include="TestSFINE.cpp" />
+    <ClCompile Include="TestVariadic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Fixture.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+</Project>
